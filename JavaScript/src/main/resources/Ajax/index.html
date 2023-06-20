@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax pruebas</title>
+</head>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+
+    $("document").ready(function (){
+        $("#get").click(function (){ //post
+            $.ajax({
+                method:"GET",
+                url:"https://3kk521ccj6.execute-api.us-east-1.amazonaws.com/prod/ws-sw2-2020-1-ajax/ej1"
+            }).done(function (msg){
+                    $("#respuesta").html(msg);
+            }).fail(function (err){
+                    console.log(err);
+                    alert("error");
+                })
+        });
+
+/*
+        $("#valid").click(function (){ //post con boton enviar
+            $.ajax({
+                method:"POST",
+                data:{username:$("#username").val()},
+                url:"https://1a8jit3xd4.execute-api.us-east-1.amazonaws.com/prod?accion=validar"
+            }).done(function (msg){
+                if(msg==="no existe"){
+                    $("#info").text("Disponible");
+                }else {
+                    $("#info").text("No disponible");
+                }
+                $("#info").show();
+                $("#info").delay(2000).fadeOut();
+            }).fail(function (err){
+                console.log(err);
+                alert("error");
+            })
+        });*/
+
+        $("#username").keyup(function (){ //post con keyup
+            $.ajax({
+                method:"POST",
+                data:{username:$("#username").val()},
+                url:"https://1a8jit3xd4.execute-api.us-east-1.amazonaws.com/prod?accion=validar"
+            }).done(function (msg){
+                if(msg==="no existe"){
+                    $("#info").text("Disponible");
+                    $("#info").show();
+                }else {
+                    $("#info").text("No disponible");
+                    $("#info").show();
+                }
+            }).fail(function (err){
+                console.log(err);
+                alert("error");
+            })
+        });
+
+    })
+</script>
+<body>
+<h3>Lorem bla bla</h3>
+<button id="get">Respuesta</button>
+<div id="respuesta">
+</div>
+<br><br>
+<div class="container">
+    <br><br>
+    <h1>Usando post validar nombre</h1>
+    <label>Username</label>
+    <br>
+    <input id="username"/>
+    <br>
+    <p id="info" style="display: none;"></p>
+    <br>
+    <button id="valid">Validar</button>
+</div>
+</body>
+</html>
