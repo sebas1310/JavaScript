@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form</title>
+</head>
+<body>
+<form action="Fotos.html" onsubmit="return validform()">
+  <label>Nombre</label>
+  <input id="name" name="name"/>
+  <br><br>
+  <label>Apellido</label>
+  <input id="surname" name="surname"/>
+  <br><br><br>
+  <input type="submit" value="enviar"/>
+</form>
+<script>
+  function validform(){
+    let name = document.getElementById("name").value;
+    let surname = document.getElementById("surname").value;
+    if(name==" " || name=="" || surname==" " || surname==""){
+      alert("Llene el formulario")
+      return false;
+    }
+  }
+</script>
+</body>
+</html>

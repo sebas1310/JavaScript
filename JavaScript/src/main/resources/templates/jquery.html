@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jquery</title>
+</head>
+<!--script src="js/jquery-3.3.1.min.js"></script-->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+    $(document).ready(function (){
+        function color(){
+            let letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i =0;i<6;i++){
+                color += letters[Math.floor(Math.random())*16];
+            }
+            return color
+        }
+
+        //all code
+        $("#btn1").click(function (){
+            let mydiv = $("#div1");
+            let mytitleh1 = $("#titlej");
+            let mytxt1 = $("#txt1");
+            mydiv.text("Mod with Jquery");
+            mytitleh1.text("Uso de Jquery");
+            mytxt1.html("<h3>Modificacion con Jquery</h3>");
+        });
+        $("#add").click(function (){
+            $("body").append('<button class="modBG">Modificar BGcOLOr</button>');
+        });
+        $("body").on("click",".modBG",function (){
+            $("body").css('background-color', color());
+        });
+    })
+</script>
+<body>
+    <div id="div1">JOJO</div>
+    <h1 id="titlej">Jquery</h1>
+    <p id = "txt1"> lorem ipsus </p>
+    <button id="btn1">Modificar Valores</button>
+    <button id="add">Agregar input</button><br>
+</body>
+</html>

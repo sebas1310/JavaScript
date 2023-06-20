@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title id="titleid">Foto title</title>
+</head>
+<body>
+<button onclick="titulochange()">Cambiar titulo</button>
+<br><br><br>
+<button id="btn3" onclick="leopequeno()">Leo pequeño</button>
+<button id="btn4" onclick="leonormal()" hidden>Leo normal</button>
+<br>
+<img id="leo"src="imgmessi.jpg" width="500rem" height="500rem"/>
+<button id="btn1" onclick="ocultar()">Ocular a leo</button>
+<button id="btn2" onclick="mostrar()" hidden>Mostrar a leo</button>
+<h1>Autor</h1>
+<h3 id="txt1"></h3>
+<a href="form.html">Ir al form</a>
+<br>
+<a href="jquery.html">Ir al Jquery</a>
+<script>
+    let title = document.getElementById("titleid");//define variable
+    console.log(title.innerText);//mostrar en consola
+    let img = document.getElementById("leo");
+    let btn2 = document.getElementById("btn2");
+    let btn1 = document.getElementById("btn1");
+    let btn3 = document.getElementById("btn3");
+    let btn4 = document.getElementById("btn4");
+
+    function leopequeno() {
+        alert("messi pequeño :0");
+        img.src = 'messipequeño.jpg';
+        btn3.style.display="none";
+        btn4.style.display="block"
+    }
+    function leonormal(){
+        img.src = 'imgmessi.jpg';
+        btn4.style.display="none";
+        btn3.style.display="block"
+    }
+    function ocultar(){
+        img.style.display="none";
+        btn1.style.display="none";
+        btn2.style.display="block";
+    }
+    function mostrar(){
+        img.style.display="block";
+        btn1.style.display="block";
+        btn2.style.display="none";
+    }
+  function titulochange(){//funcion
+      title.innerText="Foto Cambiada";
+  }
+
+  let object = {
+        nombre : "Sebastian",
+        apellido : "Segura",
+        nombreCompleto : function (){
+            return this.nombre+" "+this.apellido;
+        }
+  }
+  let  txt = document.getElementById("txt1");
+    txt.innerText = object.nombreCompleto();
+
+</script>
+</body>
+</html>
